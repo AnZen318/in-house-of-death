@@ -1,6 +1,5 @@
+# GUTTEN TAG
 import pygame
-import time
-
 
 class Object(pygame.sprite.Sprite):
 
@@ -48,7 +47,6 @@ class Object(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('Player/' + file + '/main.png').convert_alpha()
 
-
         for object in colission_list:
             if self.rect.colliderect(object):
                 if self.dx > 0:
@@ -89,7 +87,6 @@ main_room = pygame.image.load('./map/12.png')
 kitchen = pygame.image.load('./map/13.png')
 color_black = (0, 0, 0)
 
-
 clock = pygame.time.Clock()
 
 location = "start"
@@ -112,7 +109,7 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
-        elif event.type not in [pygame.K_w,pygame.K_d,pygame.K_a,pygame.K_s]:
+        elif event.type not in [pygame.K_w, pygame.K_d, pygame.K_a, pygame.K_s]:
             player.Go = False
     window.fill(color_black)
     key = pygame.key.get_pressed()
@@ -199,23 +196,23 @@ while True:
         teleport = pygame.Rect(345, 0, 220, 115)
 
         wall1 = pygame.Rect(0, 0, 110, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        # pygame.draw.rect(window, (0, 2, 255), wall1)
         colission_list.append(wall1)
 
         wall2 = pygame.Rect(785, 0, 110, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        # pygame.draw.rect(window, (0, 2, 255), wall2)
         colission_list.append(wall2)
 
         wall3 = pygame.Rect(0, 780, 1000, 110)
-        #pygame.draw.rect(window, (0, 2, 255), wall3)
+        # pygame.draw.rect(window, (0, 2, 255), wall3)
         colission_list.append(wall3)
 
         wall4 = pygame.Rect(0, 0, 370, 120)
-        #pygame.draw.rect(window, (0, 2, 255), wall4)
+        # pygame.draw.rect(window, (0, 2, 255), wall4)
         colission_list.append(wall4)
 
         wall5 = pygame.Rect(530, 0, 350, 120)
-        #pygame.draw.rect(window, (0, 2, 255), wall5)
+        # pygame.draw.rect(window, (0, 2, 255), wall5)
         colission_list.append(wall5)
 
 
@@ -225,11 +222,11 @@ while True:
         teleport = pygame.Rect(378, 800, 160, 400)
 
         wall1 = pygame.Rect(270, 0, 110, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        # pygame.draw.rect(window, (0, 2, 255), wall1)
         colission_list.append(wall1)
 
         wall2 = pygame.Rect(540, 0, 110, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        # pygame.draw.rect(window, (0, 2, 255), wall2)
         colission_list.append(wall2)
 
         teleport_pravila = pygame.Rect(381, 0, 160, 110)
@@ -239,23 +236,23 @@ while True:
         window.blit(Rules_location, (0, 0))
 
         wall1 = pygame.Rect(0, 0, 110, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        # pygame.draw.rect(window, (0, 2, 255), wall1)
         colission_list.append(wall1)
 
         wall2 = pygame.Rect(0, 0, 900, 110)
-        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        # pygame.draw.rect(window, (0, 2, 255), wall2)
         colission_list.append(wall2)
 
         wall3 = pygame.Rect(0, 680, 580, 660)
-        #pygame.draw.rect(window, (0, 2, 255), wall3)
+        # pygame.draw.rect(window, (0, 2, 255), wall3)
         colission_list.append(wall3)
 
         wall4 = pygame.Rect(790, 0, 540, 280)
-        #pygame.draw.rect(window, (0, 2, 255), wall4)
+        # pygame.draw.rect(window, (0, 2, 255), wall4)
         colission_list.append(wall4)
 
         wall5 = pygame.Rect(790, 400, 540, 1000)
-        #pygame.draw.rect(window, (0, 2, 255), wall5)
+        # pygame.draw.rect(window, (0, 2, 255), wall5)
         colission_list.append(wall5)
 
         teleport_pravila = pygame.Rect(568, 790, 220, 150)
@@ -267,11 +264,11 @@ while True:
         teleport_coridor1 = pygame.Rect(0, 335, 129, 181)
 
         wall1 = pygame.Rect(0, 530, 1000, 100)
-        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        # pygame.draw.rect(window, (0, 2, 255), wall1)
         colission_list.append(wall1)
 
         wall2 = pygame.Rect(0, 0, 900, 330)
-        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        # pygame.draw.rect(window, (0, 2, 255), wall2)
         colission_list.append(wall2)
 
         teleport_coridor2 = pygame.Rect(774, 336, 125, 180)
@@ -279,7 +276,6 @@ while True:
     elif location == 'coridor2':
         colission_list.clear()
         window.blit(coridor2, (0, 0))
-
 
         teleport_coridor2 = pygame.Rect(266, 710, 80, 140)
 
@@ -299,31 +295,31 @@ while True:
     elif location == 'coridor4':
         colission_list.clear()
         window.blit(coridor4, (0, 0))
-        teleport_coridor4 = pygame.Rect(390, 760, 180, 150) 
+        teleport_coridor4 = pygame.Rect(390, 760, 180, 150)
 
         teleport_Window_room = pygame.Rect(395, 0, 180, 145)
 
     elif location == 'Window_room':
         colission_list.clear()
         window.blit(Window_room, (0, 0))
-        teleport_Window_room = pygame.Rect(340, 752, 222, 160) 
+        teleport_Window_room = pygame.Rect(340, 752, 222, 160)
 
     elif location == 'trap_room':
         colission_list.clear()
         window.blit(trap_room, (0, 0))
-        teleport_trap_room = pygame.Rect(752, 310, 300, 300) 
+        teleport_trap_room = pygame.Rect(752, 310, 300, 300)
 
     elif location == 'coridor5':
         colission_list.clear()
         window.blit(coridor5, (0, 0))
-        teleport_coridor5 = pygame.Rect(0, 563, 90, 230) 
+        teleport_coridor5 = pygame.Rect(0, 563, 90, 230)
 
-        teleport_main_room = pygame.Rect(820, 120, 80, 210) 
+        teleport_main_room = pygame.Rect(820, 120, 80, 210)
 
     elif location == 'main_room':
         colission_list.clear()
         window.blit(main_room, (0, 0))
-        teleport_main_room = pygame.Rect(0, 160, 80, 140) 
+        teleport_main_room = pygame.Rect(0, 160, 80, 140)
 
         teleport_kitchen = pygame.Rect(79, 840, 165, 100)
 
@@ -489,4 +485,3 @@ while True:
     clock.tick(60)
 
 pygame.quit()
-
