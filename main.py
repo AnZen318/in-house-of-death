@@ -385,10 +385,19 @@ while True:
         colission_list.clear()
         window.blit(coridor1, (0, 0))
         teleport_coridor1 = pygame.Rect(0, 335, 129, 181)
-        pygame.draw.rect(window, (0, 10, 20), teleport_coridor1)
+        #pygame.draw.rect(window, (0, 10, 20), teleport_coridor1)
+
+        wall1 = pygame.Rect(0, 525, 900, 110)
+        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        colission_list.append(wall1)
+
+        wall2 = pygame.Rect(0, 225, 900, 110)
+        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        colission_list.append(wall2)
+
 
         teleport_coridor2 = pygame.Rect(774, 336, 125, 180)
-        pygame.draw.rect(window, (0, 10, 20), teleport_coridor2)
+        #pygame.draw.rect(window, (0, 10, 20), teleport_coridor2)
 
     elif location == 'coridor2':
         colission_list.clear()
@@ -399,6 +408,26 @@ while True:
 
         teleport_coridor5 = pygame.Rect(596, 65, 79, 130)
 
+        wall1 = pygame.Rect(0, 835, 900, 110)
+        pygame.draw.rect(window, (0, 2, 255), wall1)
+        colission_list.append(wall1)
+
+        wall2 = pygame.Rect(0, 645, 420, 55)
+        pygame.draw.rect(window, (0, 2, 255), wall2)
+        colission_list.append(wall2)
+
+        wall3 = pygame.Rect(0, 0, 1000, 65)
+        pygame.draw.rect(window, (0, 2, 255), wall3)
+        colission_list.append(wall3)
+
+        wall4 = pygame.Rect(355, 175, 65, 525)
+        pygame.draw.rect(window, (0, 2, 255), wall4)
+        colission_list.append(wall4)
+
+        wall5 = pygame.Rect(590, 175, 65, 705)
+        pygame.draw.rect(window, (0, 2, 255), wall5)
+        colission_list.append(wall5)
+
     elif location == 'coridor3':
         colission_list.clear()
         window.blit(coridor3, (0, 0))
@@ -408,6 +437,29 @@ while True:
 
         teleport_trap_room = pygame.Rect(0, 126, 110, 230)
 
+
+        wall1 = pygame.Rect(0, 700, 900, 110)
+        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        colission_list.append(wall1)
+
+        wall2 = pygame.Rect(0, 345, 110, 1110)
+        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        colission_list.append(wall2)
+
+        wall3 = pygame.Rect(550, 350, 900, 120)
+        #pygame.draw.rect(window, (0, 2, 255), wall3)
+        colission_list.append(wall3)
+
+        wall4 = pygame.Rect(225, 250, 125, 220)
+        #pygame.draw.rect(window, (0, 2, 255), wall4)
+        colission_list.append(wall4)
+
+        wall5 = pygame.Rect(125, 125, 125, 110)
+        #pygame.draw.rect(window, (0, 2, 255), wall5)
+        colission_list.append(wall5)
+
+
+
     elif location == 'coridor4':
         colission_list.clear()
         window.blit(coridor4, (0, 0))
@@ -415,10 +467,30 @@ while True:
 
         teleport_Window_room = pygame.Rect(395, 0, 180, 145)
 
+        wall1 = pygame.Rect(325, 0, 60, 1100)
+        #pygame.draw.rect(window, (0, 2, 255), wall1)
+        colission_list.append(wall1)
+
+        wall2 = pygame.Rect(575, 0, 60, 1100)
+        #pygame.draw.rect(window, (0, 2, 255), wall2)
+        colission_list.append(wall2)
+
     elif location == 'Window_room':
         colission_list.clear()
         window.blit(Window_room, (0, 0))
         teleport_Window_room = pygame.Rect(340, 752, 222, 160)
+
+        wall1 = pygame.Rect(0, 0, 120, 1100)
+        pygame.draw.rect(window, (0, 2, 255), wall1)
+        colission_list.append(wall1)
+
+        wall2 = pygame.Rect(800, 0, 60, 1100)
+        pygame.draw.rect(window, (0, 2, 255), wall2)
+        colission_list.append(wall2)
+
+        wall3 = pygame.Rect(0, 735, 330, 1100)
+        pygame.draw.rect(window, (0, 2, 255), wall3)
+        colission_list.append(wall3)
 
     elif location == 'trap_room':
         colission_list.clear()
@@ -470,7 +542,7 @@ while True:
             continue
 
     if player.rect.colliderect(teleport_coridor1):
-
+        print("teleport_coridor1")
         if location == 'pravila':
             location = 'coridor1'
             player.rect.y += 125
@@ -484,35 +556,35 @@ while True:
             continue
 
     if player.rect.colliderect(teleport_coridor2):
-
+        print("teleport_coridor2")
         if location == 'coridor1':
             location = 'coridor2'
-            # player.rect.y += 335
-            # player.rect.x -= 370
+            player.rect.y += 310
+            player.rect.x -= 360
             continue
 
         if location == 'coridor2':
             location = 'coridor1'
-            # player.rect.y -= 335
-            # player.rect.x += 370
+            player.rect.y -= 300
+            player.rect.x += 300
             continue
 
     if player.rect.colliderect(teleport_coridor3):
-
+        print("teleport_coridor3")
         if location == 'coridor2':
             location = 'coridor3'
-            # player.rect.y += 420
-            # player.rect.x += 10
+            player.rect.y += 420
+            player.rect.x += 310
             continue
 
         if location == 'coridor3':
             location = 'coridor2'
-            # player.rect.y -= 420
-            # player.rect.x -= 300
+            player.rect.y -= 420
+            player.rect.x -= 300
             continue
 
     if player.rect.colliderect(teleport_coridor4):
-
+        print("teleport_coridor4")
         if location == 'coridor3':
             location = 'coridor4'
             player.rect.y += 80
@@ -526,7 +598,7 @@ while True:
             continue
 
     if player.rect.colliderect(teleport_Window_room):
-
+        print("teleport_Window_room")
         if location == 'coridor4':
             player.rect.y += 450
             player.rect.x += 0
@@ -540,21 +612,21 @@ while True:
             continue
 
     if player.rect.colliderect(teleport_trap_room):
-
+        print("teleport_trap_room")
         if location == 'coridor3':
             location = 'trap_room'
-            player.rect.y += 200
-            player.rect.x += 600
+            player.rect.y += 150
+            player.rect.x += 550
             continue
 
         if location == 'trap_room':
             location = 'coridor3'
-            player.rect.y -= 200
-            player.rect.x -= 600
+            player.rect.y -= 150
+            player.rect.x -= 535
             continue
 
     if player.rect.colliderect(teleport_coridor5):
-
+        print("teleport_coridor5")
         if location == 'coridor2':
             location = 'coridor5'
             player.rect.y += 550
@@ -568,21 +640,21 @@ while True:
             continue
 
     if player.rect.colliderect(teleport_main_room):
-
+        print("teleport_main_room")
         if location == 'coridor5':
             location = 'main_room'
             player.rect.y += 10
-            player.rect.x -= 700
+            player.rect.x -= 625
             continue
 
         if location == 'main_room':
             location = 'coridor5'
             player.rect.y -= 10
-            player.rect.x += 700
+            player.rect.x += 650
             continue
 
     if player.rect.colliderect(teleport_kitchen):
-
+        print("teleport_kitchen")
         if location == 'main_room':
             location = 'kitchen'
             player.rect.y -= 600
