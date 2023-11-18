@@ -4,7 +4,7 @@ from moviepy.editor import *
 x_enemy = 510
 y_enemy = 625
 
-speed = 1
+speed = 3
 
 animation_count = 0
 
@@ -20,7 +20,7 @@ def enemy(x, y):
     global y_enemy
     global flag_coridor2
     global flag_main_room
-
+    global flag_kitchen
     if x_enemy > x and y_enemy > y:
         '''Условие, если координата x вражеского персонажа больше координаты x игрока 
     или координата y вражеского персонажа больше координаты y игрока'''
@@ -619,7 +619,7 @@ while True:
         # pygame.draw.rect(window, (0, 2, 255), wall5)
         colission_list.append(wall5)
 
-        if flag_main_room and player.rect.y < 400:
+        if flag_main_room and player.rect.y > 200:
             flag_main_room = False
             start = True
         if start:
@@ -646,6 +646,13 @@ while True:
         wall4 = pygame.Rect(245, 0, 895, 137)
         # pygame.draw.rect(window, (0, 2, 255), wall4)
         colission_list.append(wall4)
+
+        if flag_kitchen and player.rect.y < 200:
+            flag_kitchen = False
+            start = True
+        if start:
+            enemy(player.rect.x, player.rect.y)
+            draw_window()
 
     if player.rect.colliderect(teleport):
         if location == 'start':
@@ -789,8 +796,8 @@ while True:
         if location == 'main_room':
             flag_main_room = False
             start = False
-            x_enemy = 300
-            y_enemy = 300
+            x_enemy = 173
+            y_enemy = 108
             location = 'coridor5'
             player.rect.y -= 10
             player.rect.x += 650
@@ -798,12 +805,15 @@ while True:
 
     if player.rect.colliderect(teleport_kitchen):
         if location == 'main_room':
+            flag_kitchen = True
             location = 'kitchen'
             player.rect.y -= 600
             player.rect.x += 0
             continue
 
         if location == 'kitchen':
+            flag_kitchen = False
+            start = False
             location = 'main_room'
             player.rect.y += 600
             player.rect.x += 0
